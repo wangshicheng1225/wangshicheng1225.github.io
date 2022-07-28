@@ -6,10 +6,10 @@
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/android-chrome-512x512.png" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -124,7 +124,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -173,6 +173,114 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://wangshicheng1225.github.io/2022/07/28/Note-on-Survey-of-Security-in-HPC-Cloud/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shicheng Wang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shicheng Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Shicheng Wang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/28/Note-on-Survey-of-Security-in-HPC-Cloud/" class="post-title-link" itemprop="url">Note on Survey of Security in HPC Cloud</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-28 13:49:56 / Modified: 13:52:05" itemprop="dateCreated datePublished" datetime="2022-07-28T13:49:56+08:00">2022-07-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="HPC-vs-Vanilla-DC"><a href="#HPC-vs-Vanilla-DC" class="headerlink" title="HPC vs. Vanilla DC"></a>HPC vs. Vanilla DC</h2><p>HPC also has the trend of becoming cloud-like: <code>(e.g., resource pooling, rapid elasticity, on-demand self-service), or interacting with the cloud (e.g., bursting), security will become a greater concern at an accelerating rate. (Howard, 2020, p. 19)</code></p>
+<p>More harsh environment in HPC, and more violent contradiction between <strong>performance</strong> and <strong>security.</strong></p>
+<p><code>As we increasingly see cases of pure HPC bare metal infrastructure interacting with the cloud (such as I/O interfaces and processes), it brings along more ‘opportunities’ for malicious attacks. While this should be considered and integrated into security policies and guidelines, performance faces the peril of being compromised as precious resources are carved out for security protocols and processes.(Howard, 2020, p. 19)</code></p>
+<h2 id="Key-findings"><a href="#Key-findings" class="headerlink" title="Key findings"></a>Key findings</h2><ul>
+<li>Deep concerns about the cyber threats (66.7%)</li>
+<li>Budgetary constraints and Lack of awareness hinders security practices.</li>
+<li><code>About half of the respondents are offering cloud-based HPC services.(Howard, 2020, p. 19)</code></li>
+<li>Slightly more than 50% of respondents’ organizations do not tap industry guidelines &#x2F; standards for cybersecurity.</li>
+<li>A dominating concern specific to the HPC sector impeding cloud adoption is performance tradeoff (80%). Interestingly, only 10% of respondents cited not meeting security requirements as a barrier to cloud adoption.</li>
+</ul>
+<h2 id="Specific-findings"><a href="#Specific-findings" class="headerlink" title="Specific findings"></a>Specific findings</h2><ul>
+<li><p>Only 1-5% performance loss is acceptable when improving the security.</p>
+</li>
+<li><p>Security measurements are <strong>insufficient?</strong>  </p>
+<ul>
+<li>most put security measurements on  external communication (e.g., FW&#x2F;IDS)</li>
+</ul>
+</li>
+<li><p>Half are offering <strong>cloud-based HPC services.</strong></p>
+</li>
+<li><p>Cloud is becoming a trend?</p>
+<ul>
+<li>reasons putting on cloud: 1. “Industry guidelines for HPC Cloud” (Howard, 2020, p. 19) . 2.“Technical Expertise to deploy into the cloud” (Howard, 2020, p. 19)</li>
+</ul>
+</li>
+<li><p>“The availability of cybersecurity standards for HPC workloads in the cloud and industry guidelines for HPC cloud ranks highly (~75%) in influencing organizations to adopt cloud.” (Howard, 2020, p. 19)</p>
+</li>
+<li><p>80% thought it is necessary to seucre the HPC Infra.</p>
+</li>
+</ul>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
+<li>HPC cloud is becoming a trend<ul>
+<li>cost&#x2F;guidelines&#x2F;…..</li>
+</ul>
+</li>
+<li>The requirement on the performance and cost of security produces is more harsh</li>
+<li>Security issues are well recognized.</li>
+<li>Are current security practices <strong>sufficient?</strong></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://wangshicheng1225.github.io/2022/07/27/Note-on-Cloud-Computing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -191,7 +299,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/27/Note-on-Cloud-Computing/" class="post-title-link" itemprop="url">《Review on 软硬件融合:超大规模云计算架构创新之路》</a>
+          <a href="/2022/07/27/Note-on-Cloud-Computing/" class="post-title-link" itemprop="url">Note on 软硬件融合:超大规模云计算架构创新之路</a>
         </h2>
 
         <div class="post-meta-container">
@@ -209,7 +317,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-28 12:36:47" itemprop="dateModified" datetime="2022-07-28T12:36:47+08:00">2022-07-28</time>
+      <time title="Modified: 2022-07-28 13:49:15" itemprop="dateModified" datetime="2022-07-28T13:49:15+08:00">2022-07-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -267,7 +375,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="Security-issues"><a href="#Security-issues" class="headerlink" title="Security issues"></a>Security issues</h2><ul>
+<h2 id="Security-issues"><a href="#Security-issues" class="headerlink" title="Security issues"></a>Security issues</h2><p>Paper: <code>M. Ali, S. U. Khan, and A. V. Vasilakos, “Security in cloud computing: Opportunities and challenges,” Information Sciences, vol. 305, pp. 357–383, Jun. 2015.</code><br>Actually the serutiy issues in this book is only a translation of this paper.</p>
+<ul>
 <li>External communication security issues: South-north traffic<ul>
 <li>DoS (spoofing, vo), MIM, etc.</li>
 <li><strong>Solution</strong> Similar to traditional network: IDS, IPSec, SSL, encryption, etc.</li>

@@ -20,27 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wangshicheng1225.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="HPC vs. Vanilla DCHPC also has the trend of becoming cloud-like: (e.g., resource pooling, rapid elasticity, on-demand self-service), or interacting with the cloud (e.g., bursting), security will becom">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://wangshicheng1225.github.io/2022/07/27/hello-world/index.html">
+<meta property="og:title" content="Note on Survey of Security in HPC Cloud">
+<meta property="og:url" content="http://wangshicheng1225.github.io/2022/07/28/Note-on-Survey-of-Security-in-HPC-Cloud/index.html">
 <meta property="og:site_name" content="Shicheng Wang">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="HPC vs. Vanilla DCHPC also has the trend of becoming cloud-like: (e.g., resource pooling, rapid elasticity, on-demand self-service), or interacting with the cloud (e.g., bursting), security will becom">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-27T09:22:37.048Z">
-<meta property="article:modified_time" content="2022-07-27T09:22:37.048Z">
+<meta property="article:published_time" content="2022-07-28T05:49:56.000Z">
+<meta property="article:modified_time" content="2022-07-28T05:52:05.383Z">
 <meta property="article:author" content="Shicheng Wang">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://wangshicheng1225.github.io/2022/07/27/hello-world/">
+<link rel="canonical" href="http://wangshicheng1225.github.io/2022/07/28/Note-on-Survey-of-Security-in-HPC-Cloud/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://wangshicheng1225.github.io/2022/07/27/hello-world/","path":"2022/07/27/hello-world/","title":"Hello World"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://wangshicheng1225.github.io/2022/07/28/Note-on-Survey-of-Security-in-HPC-Cloud/","path":"2022/07/28/Note-on-Survey-of-Security-in-HPC-Cloud/","title":"Note on Survey of Security in HPC Cloud"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hello World | Shicheng Wang</title>
+<title>Note on Survey of Security in HPC Cloud | Shicheng Wang</title>
   
 
 
@@ -116,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HPC-vs-Vanilla-DC"><span class="nav-number">1.</span> <span class="nav-text">HPC vs. Vanilla DC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Key-findings"><span class="nav-number">2.</span> <span class="nav-text">Key findings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Specific-findings"><span class="nav-number">3.</span> <span class="nav-text">Specific findings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusions"><span class="nav-number">4.</span> <span class="nav-text">Conclusions</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -179,7 +179,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wangshicheng1225.github.io/2022/07/27/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://wangshicheng1225.github.io/2022/07/28/Note-on-Survey-of-Security-in-HPC-Cloud/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -192,12 +192,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hello World | Shicheng Wang">
+      <meta itemprop="name" content="Note on Survey of Security in HPC Cloud | Shicheng Wang">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          Note on Survey of Security in HPC Cloud
         </h1>
 
         <div class="post-meta-container">
@@ -207,8 +207,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-07-27 17:22:37" itemprop="dateCreated datePublished" datetime="2022-07-27T17:22:37+08:00">2022-07-27</time>
+      <time title="Created: 2022-07-28 13:49:56 / Modified: 13:52:05" itemprop="dateCreated datePublished" datetime="2022-07-28T13:49:56+08:00">2022-07-28</time>
     </span>
 
   
@@ -221,19 +222,45 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h2 id="HPC-vs-Vanilla-DC"><a href="#HPC-vs-Vanilla-DC" class="headerlink" title="HPC vs. Vanilla DC"></a>HPC vs. Vanilla DC</h2><p>HPC also has the trend of becoming cloud-like: <code>(e.g., resource pooling, rapid elasticity, on-demand self-service), or interacting with the cloud (e.g., bursting), security will become a greater concern at an accelerating rate. (Howard, 2020, p. 19)</code></p>
+<p>More harsh environment in HPC, and more violent contradiction between <strong>performance</strong> and <strong>security.</strong></p>
+<p><code>As we increasingly see cases of pure HPC bare metal infrastructure interacting with the cloud (such as I/O interfaces and processes), it brings along more ‘opportunities’ for malicious attacks. While this should be considered and integrated into security policies and guidelines, performance faces the peril of being compromised as precious resources are carved out for security protocols and processes.(Howard, 2020, p. 19)</code></p>
+<h2 id="Key-findings"><a href="#Key-findings" class="headerlink" title="Key findings"></a>Key findings</h2><ul>
+<li>Deep concerns about the cyber threats (66.7%)</li>
+<li>Budgetary constraints and Lack of awareness hinders security practices.</li>
+<li><code>About half of the respondents are offering cloud-based HPC services.(Howard, 2020, p. 19)</code></li>
+<li>Slightly more than 50% of respondents’ organizations do not tap industry guidelines &#x2F; standards for cybersecurity.</li>
+<li>A dominating concern specific to the HPC sector impeding cloud adoption is performance tradeoff (80%). Interestingly, only 10% of respondents cited not meeting security requirements as a barrier to cloud adoption.</li>
+</ul>
+<h2 id="Specific-findings"><a href="#Specific-findings" class="headerlink" title="Specific findings"></a>Specific findings</h2><ul>
+<li><p>Only 1-5% performance loss is acceptable when improving the security.</p>
+</li>
+<li><p>Security measurements are <strong>insufficient?</strong>  </p>
+<ul>
+<li>most put security measurements on  external communication (e.g., FW&#x2F;IDS)</li>
+</ul>
+</li>
+<li><p>Half are offering <strong>cloud-based HPC services.</strong></p>
+</li>
+<li><p>Cloud is becoming a trend?</p>
+<ul>
+<li>reasons putting on cloud: 1. “Industry guidelines for HPC Cloud” (Howard, 2020, p. 19) . 2.“Technical Expertise to deploy into the cloud” (Howard, 2020, p. 19)</li>
+</ul>
+</li>
+<li><p>“The availability of cybersecurity standards for HPC workloads in the cloud and industry guidelines for HPC cloud ranks highly (~75%) in influencing organizations to adopt cloud.” (Howard, 2020, p. 19)</p>
+</li>
+<li><p>80% thought it is necessary to seucre the HPC Infra.</p>
+</li>
+</ul>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
+<li>HPC cloud is becoming a trend<ul>
+<li>cost&#x2F;guidelines&#x2F;…..</li>
+</ul>
+</li>
+<li>The requirement on the performance and cost of security produces is more harsh</li>
+<li>Security issues are well recognized.</li>
+<li>Are current security practices <strong>sufficient?</strong></li>
+</ul>
 
     </div>
 
@@ -247,11 +274,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2022/07/27/Note-on-Cloud-Computing/" rel="prev" title="Note on 软硬件融合:超大规模云计算架构创新之路">
+                  <i class="fa fa-chevron-left"></i> Note on 软硬件融合:超大规模云计算架构创新之路
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/07/27/Note-on-Cloud-Computing/" rel="next" title="Note on 软硬件融合:超大规模云计算架构创新之路">
-                  Note on 软硬件融合:超大规模云计算架构创新之路 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
