@@ -1,5 +1,5 @@
 ---
-title: 《Review on 软硬件融合:超大规模云计算架构创新之路》
+title: Review on 软硬件融合:超大规模云计算架构创新之路
 date: 2022-07-27 18:30:04
 tags: [CloudComputing, DataCenter, Note, Review]
 categories: 
@@ -8,7 +8,7 @@ categories:
 
 ## Intro
 
-Reviews and nots on book《软硬件融合:超大规模云计算架构创新之路》
+Reviews and notes on book《软硬件融合:超大规模云计算架构创新之路》
 <!-- 
 ## Chap 1: 云计算场景
 
@@ -34,6 +34,9 @@ Reviews and nots on book《软硬件融合:超大规模云计算架构创新之�
     * Locate the failure. (performance, failure, security issue) x (location, diagnosis, forensics).
   
 ## Security issues
+
+Paper: `M. Ali, S. U. Khan, and A. V. Vasilakos, “Security in cloud computing: Opportunities and challenges,” Information Sciences, vol. 305, pp. 357–383, Jun. 2015.`
+Actually the serutiy issues in this book is only a translation of this paper.
 
 * External communication security issues: South-north traffic
   * DoS (spoofing, vo), MIM, etc.
@@ -64,7 +67,6 @@ Reviews and nots on book《软硬件融合:超大规模云计算架构创新之�
 * NVMe: memory access
 
 ## Network performance optimization
-
 
 ### Network layer
 
