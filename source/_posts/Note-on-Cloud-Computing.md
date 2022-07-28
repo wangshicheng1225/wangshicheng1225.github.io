@@ -1,5 +1,5 @@
 ---
-title: Review on 软硬件融合:超大规模云计算架构创新之路
+title: Note on 软硬件融合:超大规模云计算架构创新之路
 date: 2022-07-27 18:30:04
 tags: [CloudComputing, DataCenter, Note, Review]
 categories: 
