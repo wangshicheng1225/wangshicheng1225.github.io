@@ -1,8 +1,9 @@
 ---
 title: Note on Survey of Security in HPC Cloud
 date: 2022-07-28 13:49:56
-tags:
+tags: ["Cloud Computing", "Data Center", Note, Security]
 categories:
+- Notes
 ---
 
 ## HPC vs. Vanilla DC
