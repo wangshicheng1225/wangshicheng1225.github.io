@@ -124,7 +124,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -135,7 +135,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -164,6 +164,94 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://wangshicheng1225.github.io/2022/07/29/Note-on-Justitia/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shicheng Wang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shicheng Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Shicheng Wang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/29/Note-on-Justitia/" class="post-title-link" itemprop="url">Note on Justitia</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-29 16:26:15 / Modified: 16:43:48" itemprop="dateCreated datePublished" datetime="2022-07-29T16:26:15+08:00">2022-07-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Performance isolation (multi-tenancy) on the RDMA end-hosts.</p>
+<!-- Hardware-KBN (RDMA) has  -->
+<p>The poor Mlt-Tncy support on hardware results in <strong>Resources Contention</strong> and <strong>Greedy Processing for High Utilization</strong>.<br>The paper proposes a middleware on the driver to resolve it.</p>
+<h2 id="Key-observations"><a href="#Key-observations" class="headerlink" title="Key observations"></a>Key observations</h2><p>The performance anomaly from multi-tenants of RDMA endhost cane be categorized by application types (<em>Throughput-</em>, <em>BW-</em>, and *Latency-*sensitive). The performance affect can be discussed by cases ($C_3^2$).</p>
+<h2 id="Key-notes"><a href="#Key-notes" class="headerlink" title="Key notes"></a>Key notes</h2><ul>
+<li>RDMA network can be generalized into KBN or Lossless Network (SIGCOMM’21 paper)</li>
+<li>DCQCN provides network-angle fabric-level isolation, while the end-angel remains unobserverd.</li>
+<li>Provide inspiring scenarios assumptions about the sharing DC.</li>
+</ul>
+<h2 id="Key-Design-Ideas"><a href="#Key-Design-Ideas" class="headerlink" title="Key Design Ideas"></a>Key Design Ideas</h2><p>Refer to § 4.1.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -326,7 +414,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-28 14:01:12" itemprop="dateModified" datetime="2022-07-28T14:01:12+08:00">2022-07-28</time>
+      <time title="Modified: 2022-07-29 16:26:51" itemprop="dateModified" datetime="2022-07-29T16:26:51+08:00">2022-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
