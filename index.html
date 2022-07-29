@@ -124,7 +124,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -135,7 +135,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -164,6 +164,119 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://wangshicheng1225.github.io/2022/07/29/Note-on-Freeflow-NSDI-19/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shicheng Wang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shicheng Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Shicheng Wang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/29/Note-on-Freeflow-NSDI-19/" class="post-title-link" itemprop="url">Note on Freeflow [NSDI'19]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-29 20:20:43" itemprop="dateCreated datePublished" datetime="2022-07-29T20:20:43+08:00">2022-07-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>A virtualization framework supporting container in RDMA network</p>
+<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><ul>
+<li>Containerized cloud provides lightweight <em>Isolation</em>, <em>Portability</em> and <em>Controllability</em> (Sec. Intro.)</li>
+<li>The kernel-bypass paradigm of RDMA puts difficulty on virtulization<ul>
+<li><code>It is difficult to modify the control plane states (e.g., routes) in hardware in shared cloud environments, while it is also hard to control the data path since traffic directly goes between RAM and NIC via PCIe bus</code></li>
+<li><code>when they run in shared clouds, they have to fundamentally eschew the performance benefits afforded by RDMA. Naturally, using dedicated clusters to run an application is, however, not cost efficient both for providers or for customers.</code></li>
+<li>Current public cloud (Azure, even AWS) usually sell nearly bare-metal RDMA instances. (What about Aliyun eRDMA?)</li>
+</ul>
+</li>
+<li>Propose a tranparent and high-performance virtulization framework for containerized RDMA network.</li>
+</ul>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Virtulization"><a href="#Virtulization" class="headerlink" title="Virtulization"></a>Virtulization</h3><ul>
+<li><em>Host mode</em> networking containers<br>Containers use their host’s IP and port space, and communicate like an ordinary process in the host OS. Poor isolation and portability.</li>
+<li><em>Virtual mode</em> networking.<ul>
+<li>VSwitch (hardware-offloaded or on software) on a physical device.</li>
+<li>Strawman SR-IOV RDMA Vswitch has fundamental portability limitations (hard configuration migration).<img src="/2022/07/29/Note-on-Freeflow-NSDI-19/SR-IOVvirtulization.png" class="" title="SR-IOV RDMA Vswitch 100 100"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Key-design"><a href="#Key-design" class="headerlink" title="Key design"></a>Key design</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p>The key design can be easily get through the architecutre figure.</p>
+<img src="/2022/07/29/Note-on-Freeflow-NSDI-19/fig2.png" class="" title="Overveiw 100 100">
+
+<img src="/2022/07/29/Note-on-Freeflow-NSDI-19/fig4.png" class="" title="Architecture 100 100">
+<!-- ![Overveiw](fig2.png) -->
+
+
+<h3 id="Transparency"><a href="#Transparency" class="headerlink" title="Transparency"></a>Transparency</h3><p>Key insight: Containers are essentially processes, and they can easily share resources like memory and file descriptors with FreeFlow.<br>Intercept the <strong>verb</strong> to consturct a <strong>mapping</strong> on the Freeflow.</p>
+<h3 id="High-performance"><a href="#High-performance" class="headerlink" title="High-performance"></a>High-performance</h3><p>Leverage a zero-copy design for throughput (§4.3), and a shared memory inter-process channel with CPU spinning for latency (§5.2 and Fig.6 in the paper)</p>
+<h3 id="Communication-between-FFL-and-FFR"><a href="#Communication-between-FFL-and-FFR" class="headerlink" title="Communication between FFL and FFR"></a>Communication between FFL and FFR</h3><p>FFR intercepts the calls between Verbs library and NIC drivers by proposing a file descriptor lib.<br>Propose a <em>fast path</em> using polling with a dedicated CPU.</p>
+
+
+<h2 id="Reviews"><a href="#Reviews" class="headerlink" title="Reviews"></a>Reviews</h2><ol>
+<li>Propose a virtulization framework for container level RDMA</li>
+<li>No security issues such as leaking the data or mem key to other containers.</li>
+<li>No consideration on performance isolation. Only container-level isolation for portable control problem.</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
