@@ -124,7 +124,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -164,6 +164,138 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://wangshicheng1225.github.io/2022/08/01/Note-on-ReDMArk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shicheng Wang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shicheng Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Shicheng Wang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/01/Note-on-ReDMArk/" class="post-title-link" itemprop="url">Note on ReDMArk [Security'21]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-08-01 10:59:09 / Modified: 14:50:35" itemprop="dateCreated datePublished" datetime="2022-08-01T10:59:09+08:00">2022-08-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Summarize the security issues in RDMA network.</p>
+<h2 id="Threat-Model"><a href="#Threat-Model" class="headerlink" title="Threat Model"></a>Threat Model</h2><ol>
+<li>off-path, no root</li>
+<li>root, able to fabricate and inject messages.</li>
+<li>On-path network device</li>
+<li>Covert path to stole information.</li>
+</ol>
+<h2 id="Security-Analysis-on-IB-Arch"><a href="#Security-Analysis-on-IB-Arch" class="headerlink" title="Security Analysis on IB Arch"></a>Security Analysis on IB Arch</h2><h3 id="Memory-Protection-Keys"><a href="#Memory-Protection-Keys" class="headerlink" title="Memory Protection Keys"></a>Memory Protection Keys</h3><ul>
+<li>Memory Protection Key Randomness: <em>rkey</em> entropy and prediction probability analysis</li>
+<li>Static Initialization State for Key Generation</li>
+<li>Shared Key Generator. “If multiple RDMA applications are running on the same service the prediction of rkeys of other applications based on own rkeys is trivial as they have been generated using the same key generator.”</li>
+</ul>
+<h3 id="Memory-Allocation-Randomness"><a href="#Memory-Allocation-Randomness" class="headerlink" title="Memory Allocation Randomness"></a>Memory Allocation Randomness</h3><p>If memory is allcoated side-by-side, it can be easy to predict.</p>
+<h3 id="QP-Number-Identifiers-amp-Packet-Sequence-Numbers"><a href="#QP-Number-Identifiers-amp-Packet-Sequence-Numbers" class="headerlink" title="QP Number Identifiers &amp; Packet Sequence Numbers"></a>QP Number Identifiers &amp; Packet Sequence Numbers</h3><ul>
+<li>Linearly Increasing QP Numbers</li>
+<li>Fixed Starting Packet Sequence Number (PSN)</li>
+</ul>
+<h3 id="Other-Weakness"><a href="#Other-Weakness" class="headerlink" title="Other Weakness"></a>Other Weakness</h3><ul>
+<li>Limited Attack Detection Capabilities: No CPU intervention</li>
+<li>No encryption&#x2F;authentication</li>
+<li>Single Protection Domain for all QPs.</li>
+<li>Implicit ODP:<ul>
+<li>“If ODP is enabled, an attacker can remotely access the entire memory space of a process resulting in high attack potential.”</li>
+<li>RDMA integrated with other memory access acceleration can have high security risk. (e.g., DDIO)</li>
+</ul>
+</li>
+</ul>
+<p>To summarize: Hardware NIC has poorer isolation or security mechanism than CPU, due to the performance requirement or resource limit.</p>
+<h2 id="Attack"><a href="#Attack" class="headerlink" title="Attack"></a>Attack</h2><h3 id="Packet-Injection-using-Impersonation"><a href="#Packet-Injection-using-Impersonation" class="headerlink" title="Packet Injection using Impersonation"></a>Packet Injection using Impersonation</h3><ul>
+<li>R&#x2F;W unauthorized content</li>
+<li>Leading the session to error state.</li>
+</ul>
+<h3 id="DoS-Attack-by-Transiting-QPs-to-an-Error-State"><a href="#DoS-Attack-by-Transiting-QPs-to-an-Error-State" class="headerlink" title="DoS Attack by Transiting QPs to an Error State"></a>DoS Attack by Transiting QPs to an Error State</h3><h3 id="Unauthorized-Memory-Access"><a href="#Unauthorized-Memory-Access" class="headerlink" title="Unauthorized Memory Access"></a>Unauthorized Memory Access</h3><h3 id="DoS-Attack-based-on-Queue-Pair-Allocation-Resource-Exhaustion"><a href="#DoS-Attack-based-on-Queue-Pair-Allocation-Resource-Exhaustion" class="headerlink" title="DoS Attack based on Queue Pair Allocation Resource Exhaustion"></a>DoS Attack based on Queue Pair Allocation Resource Exhaustion</h3><h3 id="Dos-on-end-resources-exhaustion"><a href="#Dos-on-end-resources-exhaustion" class="headerlink" title="Dos on end-resources exhaustion"></a>Dos on end-resources exhaustion</h3><h3 id="Facilitating-Attacks-using-RDMA"><a href="#Facilitating-Attacks-using-RDMA" class="headerlink" title="Facilitating Attacks using RDMA"></a>Facilitating Attacks using RDMA</h3><p>“As RDMA read and write operations do not require any interaction by a remote host’s CPU V7 , they allow an attacker to “silently” read and write data.”</p>
+<ul>
+<li>W: inject code</li>
+<li>R: By continuously sweeping the readable memory, the attacker can eavesdrop on sensitive data of applications.</li>
+</ul>
+<p>Is in-network filter, or even DPI motivated?</p>
+<h2 id="Vulnerability-Assessment-of-Open-Source-RDMA-System"><a href="#Vulnerability-Assessment-of-Open-Source-RDMA-System" class="headerlink" title="Vulnerability Assessment of Open-Source RDMA System"></a>Vulnerability Assessment of Open-Source RDMA System</h2><p>Some RDMA application such as distributed&#x2F;remote storage&#x2F;key-value systems.<br>Refer in Sec. 6</p>
+<h2 id="Security-mechanism"><a href="#Security-mechanism" class="headerlink" title="Security mechanism"></a>Security mechanism</h2><p>Refer in Sec. 7</p>
+<h2 id="Experimantal-Setup"><a href="#Experimantal-Setup" class="headerlink" title="Experimantal Setup"></a>Experimantal Setup</h2><ul>
+<li>Server Cluster with Broadcom&#x2F;Mellanox NIC</li>
+<li>Public cloud (H16r in Azure)</li>
+<li>software-based RoCE</li>
+</ul>
+<h2 id="RDMA-Related-Work"><a href="#RDMA-Related-Work" class="headerlink" title="RDMA Related Work"></a>RDMA Related Work</h2><ul>
+<li>Architectural Mode: RFC 5042</li>
+<li>Side-channel Attack: Net-CAT (S&amp;P ‘20); Pythia (Sec ‘19)</li>
+<li>Storage application: Securing RDMA for highperformance datacenter storage systems. (HotCloud ‘20)</li>
+</ul>
+<h2 id="Reviews"><a href="#Reviews" class="headerlink" title="Reviews"></a>Reviews</h2><ul>
+<li>Most RDMA security issues exist in the “system-level” such as using unauthorized access to memory regions or disrupting communication using DoS. Less attacks on “Network-layer”</li>
+<li>“Furthermore, specific Mellanox NICs support raw Ethernet programming with a kernel bypass [2]”</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -316,7 +448,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-07-29 16:26:15 / Modified: 16:43:48" itemprop="dateCreated datePublished" datetime="2022-07-29T16:26:15+08:00">2022-07-29</time>
+      <time title="Created: 2022-07-29 16:26:15 / Modified: 21:49:57" itemprop="dateCreated datePublished" datetime="2022-07-29T16:26:15+08:00">2022-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
